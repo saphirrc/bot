@@ -19,9 +19,9 @@ module.exports = class embed extends Command
         .setTitle('outil de création d\'embed')
         .setDescription('0⃣ - titre\n\n1⃣ - description\n\n 📨 - terminer')
         message.channel.send(poll).then((m) =>{
-            m.react('0⃣')
-            m.react('1⃣')
-            m.react('📨')
+            m.react('0⃣');
+            m.react('1⃣');
+            m.react('📨');
             const filter = (reaction, user) => {
                 return ['0⃣', '1⃣', '📨'].includes(reaction.emoji.name) && user.id === message.author.id;
             };
@@ -46,7 +46,7 @@ module.exports = class embed extends Command
                                 if (me && !me.deleted) await me.delete();
                                 m.delete();
                                 console.log(msgResponse.content)
-                                const arg1 = msgResponse
+                                const arg1 = msgResponses
                                 this.run(message, arg1)
                             }).on('end', (_collected, reason) =>{
                                 if (reason !== 'limit') return message.reply('les 60 secondes sont écoulées !')
