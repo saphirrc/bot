@@ -33,7 +33,7 @@ module.exports = class embed extends Command
                         reaction.emoji.name = '1⃣'
                         reaction.remove(message.user)
                         reaction.emoji.name = '📨'
-                        reaction.remove(message.author)
+                        reaction.remove(message.user)
                         poll.setTitle('quel nom voulez vous que l\'embed aye')
                         poll.setDescription('La commande va être annulée dans  60 secondes.')
                         message.channel.send(poll)
