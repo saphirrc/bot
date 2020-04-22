@@ -13,7 +13,7 @@ module.exports = class embed extends Command
         })
     }
     run(message, arg1){
-        +message.delete({ timeout: 0, reason: 'It had to be done.' })
+       if(message && !message.delete) await message.delete()
         const discord = require('discord.js')
         const poll = new discord.MessageEmbed()
         .setTitle('outil de création d\'embed')
