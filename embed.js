@@ -34,9 +34,10 @@ module.exports = class embed extends Command
                         reaction.remove(message.user)
                         reaction.emoji.name = '📨'
                         reaction.remove(message.user)
-                        poll.setTitle('quel nom voulez vous que l\'embed aye')
-                        poll.setDescription('La commande va être annulée dans  60 secondes.')
-                        message.channel.send(poll)
+                        const pol = new discord.MessageEmbed()
+                        .setTitle('quel nom voulez vous que l\'embed aye')
+                        .setDescription('La commande va être annulée dans  60 secondes.')
+                        message.channel.send(pol)
                         .then((me) =>{
                             message.channel.createMessageCollector(
                                 msg => msg.author.id === message.author.id,{ max: 1, time: 60000 }
@@ -52,7 +53,7 @@ module.exports = class embed extends Command
                             });
                         })
                     }if(reaction.emoji.name === '1⃣' && reaction.user === message.user){
-                        message.reply('e')
+                        // à venir
                     }if(reaction.emoji.name === '📨' && reaction.user === message.user){
                         const emb = new discord.MessageEmbed()
                         emb.setTitle(arg1)
